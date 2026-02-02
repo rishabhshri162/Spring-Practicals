@@ -27,6 +27,14 @@
 		
 	</bean>
 	
+	<bean id="order" class="com.rays.test.Order">
+
+		<property name="product" value="TV"></property>    
+		<property name="price" value="50000"></property>
+		<property name="quantity" value="2"></property>   
+		
+	</bean>
+	
 	
 	<!-- By using constructor -->
 	<bean id="user2" class="com.rays.test.User">
@@ -39,6 +47,13 @@
 	
 	<constructor-arg value="Amit"></constructor-arg>           
 	<constructor-arg value="Delhi"></constructor-arg>
+	
+	</bean>
+	
+	<bean id="order1" class="com.rays.test.Order">
+	<constructor-arg value="Washing machine"></constructor-arg>
+	<constructor-arg value="65000"></constructor-arg>
+	<constructor-arg value="1"></constructor-arg>
 	
 	</bean>
 
