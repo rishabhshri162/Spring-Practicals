@@ -19,12 +19,26 @@
 		
 	</bean>
 	
+	<bean id="person" class="com.rays.test.Person">
+
+		<property name="name" value="Rishabh"></property>    
+		<property name="login" value="rishabh@gmail.com"></property>
+		<property name="password" value="pass123"></property>   
+		
+	</bean>
+	
 	
 	<!-- By using constructor -->
 	<bean id="user2" class="com.rays.test.User">
 	
 	<constructor-arg value="Ram"></constructor-arg>            <!-- setName("Ram"); -->
 	<constructor-arg value="Delhi"></constructor-arg>          <!-- setAddress("Delhi"); -->
+	</bean>
+	
+	<bean id="person1" class="com.rays.test.Person">
+	
+	<constructor-arg value="Amit"></constructor-arg>           
+	<constructor-arg value="Delhi"></constructor-arg>
 	
 	</bean>
 

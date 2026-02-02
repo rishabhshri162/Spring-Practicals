@@ -8,7 +8,7 @@ public class TestUser {
 	
 	public static void main(String[] args) {
 		
-		BeanFactory factory = new XmlBeanFactory(new ClassPathResource("user.xml"));
+	BeanFactory factory = new XmlBeanFactory(new ClassPathResource("user.xml"));
 		
 	   User dto = (User) factory.getBean("user");
 	   System.out.println(dto.getName());
@@ -26,7 +26,14 @@ public class TestUser {
 	   dto = (User) factory.getBean("user2");
 	   System.out.println(dto.getName());
 	   System.out.println(dto.getAddress());
-		
+	   
+	   System.out.println("----------------------------");
+	   
+	   Person p = (Person) factory.getBean("person");
+	   System.out.println(p.getName());
+	   System.out.println(p.getLogin());
+	   System.out.println(p.getPassword());
+	   
 		
 		
 		
