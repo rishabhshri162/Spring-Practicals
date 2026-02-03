@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="student" class="com.rays.test.Student">
+		<property name="name" value="Rishabh"></property>
+		<property name="rollNo" value="12"></property>
+		<property name="phy" value="85"></property>
+		<property name="chm" value="90"></property>
+		<property name="math" value="95"></property>
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</beans>
