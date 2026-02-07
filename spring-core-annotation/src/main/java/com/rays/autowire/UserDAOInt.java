@@ -1,7 +1,8 @@
-package com.rays.autowire.bytype;
+package com.rays.autowire;
 
 public interface UserDAOInt {
 	
 	public void add();
-
+	
+	
 }
