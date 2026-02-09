@@ -1,5 +1,7 @@
 package com.rays.dao;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,10 +55,69 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 	}
 
 	public void update(UserDTO dto) {
+
 		String sql = "update st_user set first_name = ?, last_name = ?, login = ?, password = ? where id = ?";
+
 		int i = jdbcTemplate.update(sql, dto.getFirstName(), dto.getLastName(), dto.getLogin(), dto.getPassword(),
 				dto.getId());
+
 		System.out.println("record updated successfully");
+	}
+
+	public UserDTO findByPk(int id) {
+
+		String sql = "select * from st_user where id = ?";
+
+		Object[] object = { id };
+
+		UserDTO dto = jdbcTemplate.queryForObject(sql, object, new UserMapper());
+
+		return dto;
+	}
+
+	public UserDTO findByLogin(String login) {
+		String sql = "select * from st_user where login = ?";
+
+		Object[] object = { login };
+
+		UserDTO dto = jdbcTemplate.queryForObject(sql, object, new UserMapper());
+
+		return dto;
+	}
+
+	public UserDTO authenticate(String login, String password) {
+
+		String sql = "select * from st_user where login = ? and password = ?";
+
+		Object[] object = { login, password };
+
+		UserDTO dto = jdbcTemplate.queryForObject(sql, object, new UserMapper());
+
+		return dto;
+	}
+
+	public List<UserDTO> search(UserDTO dto, int pageNo, int pageSize) {
+
+		List<UserDTO> list = null;
+
+		StringBuffer sql = new StringBuffer("select * from st_user where 1=1");
+
+		if (dto != null) {
+			if (dto.getFirstName() != null && dto.getFirstName().length() > 0) {
+				sql.append(" and first_name like '" + dto.getFirstName() + "%'");
+
+			}
+
+			if (pageSize > 0) {
+				pageNo = (pageNo - 1) * pageSize;
+				sql.append(" limit " + pageNo + ", " + pageSize);
+
+			}
+			list = jdbcTemplate.query(sql.toString(), new UserMapper());
+
+		}
+
+		return list;
 	}
 
 }
