@@ -23,6 +23,7 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 	}
 
 	public long nextPk() {
+		
 
 		String sql = "select max(id) from st_user";
 
