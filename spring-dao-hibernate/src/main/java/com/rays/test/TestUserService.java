@@ -27,7 +27,7 @@ public class TestUserService {
 //		test.testAdd();
 //		test.testUpdate();
 //		test.testFindByPk();
-		test.testDelete();
+//		test.testDelete();
 //		test.testFindByLogin();
 //		test.testSearch();
 
@@ -93,6 +93,6 @@ public class TestUserService {
 	}
 
 	private void testDelete() {
-		service.delete(2);
+		service.delete(5);
 	}
 }
