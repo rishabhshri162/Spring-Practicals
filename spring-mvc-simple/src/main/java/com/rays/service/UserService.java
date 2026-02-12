@@ -18,6 +18,12 @@ public class UserService implements UserServiceInt {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public long add(UserDTO dto) {
+		
+		UserDTO existDto = dao.findByLogin(dto.getLogin());
+
+        if (existDto != null) {
+            throw new RuntimeException("Email already exists");
+        }
 		long pk = dao.add(dto);
 		return pk;
 	}
@@ -29,6 +35,14 @@ public class UserService implements UserServiceInt {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(UserDTO dto) {
+		
+		UserDTO existDto = findByLogin(dto.getLogin());
+		
+		if (existDto != null && existDto.getId() != dto.getId()) {
+			throw new RuntimeException("Login ID already exists");
+			
+		}
+		
 		dao.update(dto);
 	}
 
