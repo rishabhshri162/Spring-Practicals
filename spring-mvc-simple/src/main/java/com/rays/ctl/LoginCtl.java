@@ -37,7 +37,7 @@ public class LoginCtl {
 	}
 
 	@PostMapping
-	public String login(@ModelAttribute("form") LoginForm form, HttpSession session) {
+	public String login(@ModelAttribute("form") LoginForm form, HttpSession session, Model model) {
 
 		UserDTO dto = new UserDTO();
 
@@ -48,6 +48,7 @@ public class LoginCtl {
 			return "redirect:/Welcome";
 
 		} else {
+			model.addAttribute("emsg", "Please enter valid email & password");
 			return "LoginView";
 		}
 
