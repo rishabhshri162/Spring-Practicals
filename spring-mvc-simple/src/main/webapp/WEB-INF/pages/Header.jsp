@@ -27,5 +27,7 @@
 		<a href="<c:url value="/Login"/>"><b>Login</b></a>
 	</c:if>
 	<hr>
+	
+	<%@include file="Footer.jsp" %>
 </body>
 </html>

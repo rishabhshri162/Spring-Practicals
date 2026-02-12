@@ -18,5 +18,6 @@
 		<h1>Online result system</h1>
 	</div>
 
+	<%@include file="Footer.jsp" %>
 </body>
 </html>
