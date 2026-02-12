@@ -24,7 +24,7 @@ public class UserCtl {
 	UserServiceInt userService;
 
 	@GetMapping
-	public String display(@ModelAttribute("form") UserRegistrationForm form) {
+	public String display(@ModelAttribute("form") UserForm form) {
 
 		return "UserView";
 
@@ -42,7 +42,7 @@ public class UserCtl {
 	}
 	
 	@PostMapping
-	public String register(@ModelAttribute("form") UserForm form, Model model) {
+	public String save(@ModelAttribute("form") UserForm form, Model model) {
 
 		UserDTO dto = new UserDTO();
 		dto.setFirstName(form.getFirstName());
