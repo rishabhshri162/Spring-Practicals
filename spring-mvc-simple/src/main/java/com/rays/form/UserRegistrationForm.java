@@ -6,16 +6,22 @@ public class UserRegistrationForm {
 
 	protected long id = 0;
 
+	@NotEmpty(message = "Login id is required")
 	private String firstName;
 
+	@NotEmpty(message = "lastName is required")
 	private String lastName;
 
+	@NotEmpty(message = "Login is required")
 	private String login;
 
+	@NotEmpty(message = "password is required")
 	private String password;
 
+	@NotEmpty(message = "dob is required")
 	private String dob;
 
+	@NotEmpty(message = "address is required")
 	private String address;
 
 	public long getId() {

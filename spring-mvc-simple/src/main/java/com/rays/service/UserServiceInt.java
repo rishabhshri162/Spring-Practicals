@@ -11,7 +11,7 @@ public interface UserServiceInt {
 	public void delete(long pk);
 	
 	public void update(UserDTO dto);
-	
+		
 	public UserDTO findByPk(long pk);
 	
 	public UserDTO findByLogin(String login);

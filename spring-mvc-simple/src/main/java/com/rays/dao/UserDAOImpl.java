@@ -39,7 +39,7 @@ public class UserDAOImpl implements UserDAOInt{
 
 	public void update(UserDTO dto) {
 		
-		sessionFactory.getCurrentSession().update(dto);
+		sessionFactory.getCurrentSession().merge(dto);
 	}
 
 	public UserDTO findByPk(long pk) {

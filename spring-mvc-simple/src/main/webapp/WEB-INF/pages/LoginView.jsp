@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
-	
+
 	<sf:form method="post" modelAttribute="form">
 		<div align="center">
 			<h1 style="color: navy">Login</h1>
@@ -18,11 +18,13 @@
 				<tr>
 					<th align="left">Login ID :</th>
 					<td><sf:input path="login" placeholder="enter your login" /></td>
+					<td style="color: red"><sf:errors path="login"></sf:errors></td>
 				</tr>
 				<tr>
 					<th align="left">Password :</th>
 					<td><sf:input path="password"
 							placeholder="enter your password" /></td>
+					<td style="color: red"><sf:errors path="password"></sf:errors></td>
 				</tr>
 				<tr>
 					<th></th>
