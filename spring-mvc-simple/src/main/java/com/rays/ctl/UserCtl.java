@@ -40,7 +40,7 @@ public class UserCtl {
 		return "UserListView";
 
 	}
-	
+
 	@PostMapping
 	public String save(@ModelAttribute("form") UserForm form, Model model) {
 
@@ -52,9 +52,12 @@ public class UserCtl {
 		dto.setDob(DataUtility.stringToDate(form.getDob()));
 		dto.setAddress(form.getAddress());
 
-		long pk = userService.add(dto);
-		model.addAttribute("msg", "User Added Successfully!..");
-
+		try {
+			long pk = userService.add(dto);
+			model.addAttribute("msg", "User Added Successfully!..");
+		} catch (Exception e) {
+			model.addAttribute("emsg", e.getMessage());
+		}
 		return "UserView";
 
 	}

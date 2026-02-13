@@ -17,6 +17,7 @@
 
 			<h1 style="color: navy">Add User</h1>
 			<h2 style="color: green">${msg}</h2>
+			<h2 style="color: red">${emsg}</h2>
 
 			<table>
 				<tr>
