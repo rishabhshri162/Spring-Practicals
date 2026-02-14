@@ -47,6 +47,8 @@ public class UserCtl {
 	}
 
 	@GetMapping("search")
+
+	// Ye puri list search krke laane ke lie
 	public String search(@ModelAttribute("form") UserForm form, Model model) {
 
 		UserDTO dto = new UserDTO();
@@ -89,7 +91,7 @@ public class UserCtl {
 
 		}
 
-		if (operation.equals("search")) {
+		if (operation.equals("search")) { // Search filter
 			dto = new UserDTO();
 			dto.setFirstName(form.getFirstName());
 
@@ -109,10 +111,9 @@ public class UserCtl {
 	public String save(@ModelAttribute("form") @Valid UserForm form, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
-        return "UserView";			
+			return "UserView";
 		}
-		
-		
+
 		UserDTO dto = new UserDTO();
 		dto.setId(form.getId());
 		dto.setFirstName(form.getFirstName());
